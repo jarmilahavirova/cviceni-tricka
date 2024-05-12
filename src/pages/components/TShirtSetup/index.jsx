@@ -19,7 +19,12 @@ export const TShirtSetup = ({ onTypeChange, onColorChange, onPrintChange }) => {
       </select>
 
       <label className="tshirt-setup__label">Barva:</label>
-      <select className="tshirt-setup__input" onChange={onColorChange}>
+      <select
+        className="tshirt-setup__input"
+        onChange={(event) => {
+          onColorChange(event.target.value);
+        }}
+      >
         <option value="yellow">Žlutá</option>
         <option value="red">Červená</option>
         <option value="blue">Modrá</option>
@@ -31,7 +36,9 @@ export const TShirtSetup = ({ onTypeChange, onColorChange, onPrintChange }) => {
         className="tshirt-setup__input"
         type="text"
         defaultValue="Ahoj světe"
-        onChange={onPrintChange}
+        onChange={(event) => {
+          onPrintChange(event.target.value);
+        }}
       />
     </form>
   );

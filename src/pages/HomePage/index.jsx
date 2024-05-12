@@ -8,10 +8,6 @@ export const HomePage = () => {
   const [type, setType] = useState("normalShortSleeve");
   const [print, setPrint] = useState("Ahoj světe");
 
-  const handleChange = (type) => {
-    setType(type);
-  };
-
   return (
     <div className="container">
       <div className="tshirt-panel">
@@ -21,13 +17,9 @@ export const HomePage = () => {
         <div className="tshirt-panel__setup">
           <h2>Možnosti:</h2>
           <TShirtSetup
-            onTypeChange={handleChange}
-            onColorChange={(event) => {
-              setBarva(event.target.value);
-            }}
-            onPrintChange={(event) => {
-              setPrint(event.target.value);
-            }}
+            onTypeChange={setType}
+            onColorChange={setBarva}
+            onPrintChange={setPrint}
           />
         </div>
       </div>
